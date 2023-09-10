@@ -6,7 +6,7 @@ module.exports = {
     buscarTodas: async (req, res) => {
         let json = {error:'', result:[]};
 
-        let categorias = await CategoriaService.buscartodas();
+        let categorias = await CategoriaService.buscarTodos();
         for (let i in categorias) {
             json.result.push({
                 id: categorias[i].id,
@@ -30,10 +30,9 @@ module.exports = {
     inserirCategoria: async(req, res) => {
         let json = {error:'', result:{}};
 
-        let id = req.body.id;
         let nome = req.body.nome;
         if (condition) {
-            let CategoriaId = await CategoriaService.inserir(id,nome);
+            let CategoriaId = await CategoriaService.inserir(nome);
             json.result = {
                 id: CategoriaId,
                 nome
@@ -49,7 +48,7 @@ module.exports = {
         let id = req.body.id;
         let nome = req.body.nome;
         if (condition) {
-            await CategoriaService.inserir(id,nome);
+            await CategoriaService.alterar(id,nome);
             json.result = {
                 id,
                 nome

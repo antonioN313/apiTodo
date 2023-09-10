@@ -6,19 +6,25 @@ const CategoriaController = require('./controllers/CategoriaController');
 const TarefasCategoriaController = require('./controllers/TarefasCategoriaController');
 
 /*Tarefas*/
-router.get // buscar todas as tarefas
-router.get //buscar uma tarefa
-router.get // buscar tarefas por categoria
-router.get // buscar tarefas que foram feitas/nao feitas
-router.post // inserir uma tarefa
-router.put //atualizar/alterar uma tarefa
-router.delete //Apagar uma tarefa (indiferente de feita ou nao)
+router.get('/tarefas',TarefasController.buscarTodas);// buscar todas as tarefas
+router.get('/tarefa/:id',TarefasController.buscarUm);//buscar uma tarefa
+router.get('/tarefa/:categoria',TarefasController.buscarCategoria);// buscar tarefas por categoria
+router.get('/tarefa/:status',TarefasController.buscarStatus);// buscar tarefas que foram feitas/nao feitas
+
+router.post('/tarefa', TarefasController.inserirTarefa); // inserir uma tarefa
+
+router.put('/tarefa/:id',TarefasController.alterarTudo); //atualizar/alterar uma tarefa
+router.put('/tarefa/:id',TarefasController.alterardataTarefa);
+router.put('/tarefa/:id',TarefasController.alterarStatus);
+
+router.delete('/tarefa/:id',TarefasController.excluir); //Apagar uma tarefa (indiferente de feita ou nao)
 /*Categoria*/
-router.get //busca todos
-router.get //buscar um por id
-router.post // inserir categoria
-router.put // atualizar categoria
-router.delete // deletar categoria
+router.get('/categorias',CategoriaController.buscarTodas); //busca todos
+router.get('/categoria/:id',CategoriaController.buscarUm); //buscar um por id
+
+router.post('/categoria',CategoriaController.inserirCategoria); // inserir categoria
+router.put('/categoria/:id',CategoriaController.alterar); // atualizar categoria
+router.delete('/categoria/:id',CategoriaController.excluir); // deletar categoria
 /*Associacoes (TarefasCategoria)*/
 router.get //buscar todos
 router.get // buscar por 
