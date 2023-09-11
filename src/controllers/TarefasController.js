@@ -82,9 +82,9 @@ module.exports = {
         let dataTarefa = req.body.dataTarefa;
         let status = req.body.status;
         if (condition) {
-            let tarefaId = await TarefasService.alterar(tarefa,descricao,dataTarefa,status);
+            await TarefasService.alterarTudo(id,tarefa,descricao,dataTarefa,status);
             json.result = {
-                id: tarefaId,
+                id,
                 tarefa,
                 descricao,
                 dataTarefa,
@@ -103,9 +103,9 @@ module.exports = {
         let dataTarefa = req.body.dataTarefa;
         let status = req.body.status;
         if (condition) {
-            let tarefaId = await TarefasService.alterardataTarefa(dataTarefa);
+            await TarefasService.alterardataTarefa(id,dataTarefa);
             json.result = {
-                id: tarefaId,
+                id,
                 tarefa,
                 descricao,
                 dataTarefa,
@@ -124,9 +124,9 @@ module.exports = {
         let dataTarefa = req.body.dataTarefa;
         let status = req.body.status;
         if (condition) {
-            let tarefaId = await TarefasService.alterarStatus(status);
+            await TarefasService.alterarStatus(id,status);
             json.result = {
-                id: tarefaId,
+                id,
                 tarefa,
                 descricao,
                 dataTarefa,

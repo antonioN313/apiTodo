@@ -55,4 +55,39 @@ module.exports = {
             });
         });
     },
+    alterarTudo: (id,tarefa,descricao,dataTarefa,status) =>{
+        return new Promise((aceito, rejeitado)=>{
+            db.query('UPDATE tarefas SET tarefa = ?,descricao = ?, dataTarefa = ?, status = ? WHERE id = ?',
+            [id,tarefa,descricao,dataTarefa,status], (error,results)=>{
+                if(error){ rejeitado(error); return; }
+                aceito(results);
+            })
+        })
+    },
+    alterardataTarefa:(id,dataTarefa) =>{
+        return new Promise((aceito, rejeitado)=>{
+            db.query('UPDATE tarefas SET dataTarefa = ? WHERE id = ?',
+            [id,dataTarefa], (error,results)=>{
+                if(error){ rejeitado(error); return; }
+                aceito(results);
+            })
+        })
+    },
+    alterarStatus:(id,status)=>{
+        return new Promise((aceito, rejeitado)=>{
+            db.query('UPDATE tarefas SET status = ? WHERE id = ?',
+            [id,status], (error,results)=>{
+                if(error){ rejeitado(error); return; }
+                aceito(results);
+            })
+        })
+    },
+    excluir: (id) => {
+        return new Promise((aceito, rejeitado)=> {
+            db.query('DELETE FROM tarefas WHERE id = ?',[id], (error, results ) =>{
+                if(error){ rejeitado(error); return; }
+                aceito(results);
+            });
+        });
+    }
 }
