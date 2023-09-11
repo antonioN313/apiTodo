@@ -95,6 +95,48 @@ module.exports = {
         }
         res.json(json);
     },
+    alterardataTarefa: async(req, res) =>{
+        let json = {error:'', result:{}};
+
+        let tarefa = req.body.tarefa;
+        let descricao = req.body.descricao;
+        let dataTarefa = req.body.dataTarefa;
+        let status = req.body.status;
+        if (condition) {
+            let tarefaId = await TarefasService.alterardataTarefa(dataTarefa);
+            json.result = {
+                id: tarefaId,
+                tarefa,
+                descricao,
+                dataTarefa,
+                status
+            };
+        }else{
+            json.error = 'Campos não enviados';
+        }
+        res.json(json);
+    },
+    alterarStatus: async(req, res)=> {
+        let json = {error:'', result:{}};
+
+        let tarefa = req.body.tarefa;
+        let descricao = req.body.descricao;
+        let dataTarefa = req.body.dataTarefa;
+        let status = req.body.status;
+        if (condition) {
+            let tarefaId = await TarefasService.alterarStatus(status);
+            json.result = {
+                id: tarefaId,
+                tarefa,
+                descricao,
+                dataTarefa,
+                status
+            };
+        }else{
+            json.error = 'Campos não enviados';
+        }
+        res.json(json);
+    }, 
     excluir:async(req,res) => {
         let json = {error:'', result:{}};
 
