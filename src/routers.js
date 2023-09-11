@@ -25,9 +25,3 @@ router.get('/categoria/:id',CategoriaController.buscarUm); //buscar um por id
 router.post('/categoria',CategoriaController.inserirCategoria); // inserir categoria
 router.put('/categoria/:id',CategoriaController.alterar); // atualizar categoria
 router.delete('/categoria/:id',CategoriaController.excluir); // deletar categoria
-/*Associacoes (TarefasCategoria)*/
-router.get //buscar todos
-router.get // buscar por 
-router.post // inserir uma associacao
-router.put // alterar/atualizar uma associacao
-router.delete // deletar associacoes
