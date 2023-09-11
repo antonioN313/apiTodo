@@ -2,8 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const TarefasController = require('./controllers/TarefasController.js');
-const CategoriaController = require('./controllers/CategoriaController');
-const TarefasCategoriaController = require('./controllers/TarefasCategoriaController');
+const CategoriaController = require('./controllers/CategoriaController.js');
 
 /*Tarefas*/
 router.get('/tarefas',TarefasController.buscarTodas);// buscar todas as tarefas
@@ -25,3 +24,5 @@ router.get('/categoria/:id',CategoriaController.buscarUm); //buscar um por id
 router.post('/categoria',CategoriaController.inserirCategoria); // inserir categoria
 router.put('/categoria/:id',CategoriaController.alterar); // atualizar categoria
 router.delete('/categoria/:id',CategoriaController.excluir); // deletar categoria
+
+module.exports = router;
